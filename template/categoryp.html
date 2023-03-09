@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Category | PhotoHub{% endblock%}
+
+{% block content %}
+<div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'img/hero.jpg' %}">
+</div>
+
+<div class="container tm-container-content tm-mt-60">
+	<div class="row mb-4">
+		{% for i in cat %}
+		{% if forloop.first %}
+		<h2 class="col-6 tm-text-primary text-uppercase">
+			{{i.category}}
+		</h2>
+		{% endif %}
+		{% endfor %}
+    </div>
+    <div class="row tm-mb-90 tm-gallery">
+    	{% for i in cat %}
+    	<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+    		<figure class="effect-ming tm-video-item">
+    			<a href="/pdetail/{{i.id}}" target="_blank"><img src="{{i.image.url}}" alt="{{i.category}}" class="text-uppercase" height="170px" width="100%"></a>
+    		</figure>
+    		<div class="d-flex justify-content-between tm-text-gray">
+                <span class="tm-text-gray-dark">{{i.created_at}}</span>
+                <a href="{% url 'bio' %}?user={{i.user}}"><span class="tm-text-gray-dark text-capitalize">{{i.user}}</span></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

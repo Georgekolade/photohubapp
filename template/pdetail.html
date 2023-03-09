@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Details | PhotoHub{% endblock title %}
+
+{% block content %}
+
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'img/hero.jpg'%}">
+        <!-- <form class="d-flex tm-search-form">
+            <input class="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success tm-search-btn" type="submit">
+                <i class="fas fa-search"></i>
+            </button>
+        </form> -->
+    </div>
+
+    <div class="container tm-container-content tm-mt-60">
+        <div class="row mb-4">
+            <h2 class="col-12 tm-text-primary text-capitalize">{{de.category}}</h2>
+        </div>
+        <div class="row tm-mb-90">            
+            <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
+                <figure class="effect-ming tm-video-item">
+                    <a href="{{de.image.url}}" download><img src="{{de.image.url}}" alt="{{de.image}}" height="auto" width="100%"></a>
+                </figure>
+            </div>
+            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12">
+                <div class="tm-video-details bg-dark">
+                    <p class="mb-4">
+                        Please support <span class="text-capitalize">{{de.user}}</span> by making <a href="https://paypal.me/" target="_parent" rel="sponsored">a PayPal donation</a>. It would really encourage me to do more.
+                    </p>
+                    <div class="mb-4">
+                        <h3 class="tm-text-gray-dark mb-3">Caption</h3>
+                        <p class="mb-4 text-capitalize">{{de.caption}}</p>
+                    </div>                    
+                    <div class="mb-4 d-flex flex-wrap">
+                        <h3 class="tm-text-gray-dark mb-3">Properties</h3>
+                        <div class="mr-4 mb-2">
+                            <span class="text-white">Dimension: </span><span class="text-danger">{{height}} x {{width}}</span>
+                        </div>
+                        <div class="mr-4 mb-2">
+                            <span class="text-white">Format: </span><span class="text-danger">{{forma}}</span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="tm-text-gray-dark mb-3">License</h3>
+                        <p>Free for both personal and commercial use. No need to pay anything. No need to make any attribution.</p>
+                    </div>
+                    <div>
+                        <h3 class="tm-text-gray-dark mb-3">Tags</h3>
+                        {% for i in category %}
+                        <a href="{% url 'categoryp' %}?category={{i.name}}" class="text-primary text-capitalize mr-4 mb-2 d-inline-block">{{i.name}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- container-fluid, tm-container-content -->
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Home | MyPhotoApp{% endblock title %}
+
+{% block content %}
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'img/hero.jpg' %}">
+    </div>
+
+    <div class="container tm-container-content tm-mt-60">
+        <div class="row mb-4">
+            <h2 class="col-6 tm-text-primary text-uppercase">
+                Categories
+            </h2>
+        </div>
+        <div class="row tm-mb-90 tm-gallery">    
+            {% for i in category %}
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
+                <figure class="effect-ming tm-video-item">
+                    <img src="{{i.thumbnailp.url}}" alt="{{i.name}}" class="text-uppercase img-fluid">
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <h2>{{i.name}}</h2>
+                        <!-- <a href="pdetail/{{i.id}}" target="_blank">View more</a> -->
+                        <a href="{% url 'categoryp' %}?category={{i.name}}">View More</a>
+                    </figcaption>                    
+                </figure>
+            </div>
+            {% endfor %}
+            
+        </div> <!-- row -->
+    </div>
+{% endblock %}

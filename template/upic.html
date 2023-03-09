@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Upload | PhotoHub</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+</head>
+<body style="background-image: url(../static/img/pexels-kelly-l-2833666.jpg);">
+
+	<section class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8 m-5 mt-5 p-5">
+				<div class="card">
+					<div class="card-header text-white bg-info">
+						<h1 class="fw-bold"><span class="float-left"></span>Upload</span><span class="float-end"><a href="/profile" class="text-white"><i class="fas fa-home" title="Homepage"></i></a></span></h1>
+					</div>
+					<div class="card-body p-3">
+						<form action="" method="POST" enctype="multipart/form-data" autocomplete="on" spellcheck="true">
+							{% csrf_token %}
+
+							<div class="mb-3">
+								<label class="form-label">Available Categories</label>
+								<select class="form-control" required name="category">
+									<option value="" selected disabled>-- Choose --</option>
+									{% for i in pics %}
+									<option value="{{i}}">{{i}}</option>
+									{% endfor %}
+								</select>
+							</div>
+
+							{{form.as_p}}
+							
+							<!-- <div class="mb-3">
+								<label class="form-label">Image</label>
+								<input type="file" class="form-control" required name="image">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Caption</label>
+								<textarea rows="2" class="form-control" required name="caption"></textarea>
+							</div> -->
+
+							<button type="submit" class="input-group-text text-white bg-info">Upload</button>
+							<!-- <div class="mb-3">
+								<label class="form-label">Category</label>
+								<input type="text" class="form-control" required name="category">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Picture</label>
+								<input type="file" class="form-control" name="image">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Date</label>
+								<div class="input-group">
+									<input type="date" class="form-control" required name="date" min="2022-01-01">
+									<div class="input-group-append">
+										<button type="submit" class="input-group-text text-white bg-info">Upload</button>
+                  					</div>
+								</div>
+							</div> -->
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

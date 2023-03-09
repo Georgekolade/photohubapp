@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Contact | PhotoHub{% endblock title %}
+
+{% block content %}
+    <div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{% static 'img/hero.jpg' %}"></div>
+
+    <div class="container tm-mt-60">
+        <div class="row tm-mb-50 justify-content-around">
+            <h2 class="tm-text-primary mb-5">Contact Page</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mb-5 d-block mx-auto text-center">
+                <img src="{% static 'img/dp.jpg' %}" alt="Ceo" class="mb-4 img-fluid">
+                <h2 class="tm-text-primary mb-4">Obigbesan George Kolade</h2>
+                <h3 class="tm-text-secondary h5 mb-4">Chief Executive Officer</h3>
+                <p class="mb-4 text-dark text-justify">
+                    I am 21 years old, I am a undergraduate of an I.T technical college, I strive to gain professional experience. My passion is computer science and new technologies. I am a hard-working and thorough person, also a quick learner.
+                    I am looking for opportunities as a web developer.
+                </p>
+                <ul class="tm-social text-center">
+                    <li><a href="https://facebook.com/obigbesan.george"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/georgeobigbesan"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://linkedin.com/obigesangeorgekolade"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

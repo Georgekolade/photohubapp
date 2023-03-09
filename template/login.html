@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Login | MyPhotoApp{% endblock title %}</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="register-logo">
+            <a href="/"><b>Photo</b>Hub</a>
+          </div>
+        <!-- /.login-logo -->
+        <div class="card">
+          <div class="card-body login-card-body">
+            <p class="login-box-msg mb-3"><span class="float-left">Sign in to start your session</span><span class="float-right text-dark"><a href="/"><i class="fas fa-home" title="Homepage"></i></a></span></p>
+
+            <div>
+                {% for message in messages %}
+                <h5 class="text-danger h6 mb-4">{{message}}</h5>
+                {% endfor %}
+              </div>
+      
+            <form action="" method="post">
+                {% csrf_token %}
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Username" name="username">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="password" class="form-control" placeholder="Password" name="password">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                </div>
+                <!-- /.col -->
+              </div>
+            </form>
+
+            <p class="my-3">
+              Not Registered? <a href="/register" class="text-center">Create Account</a>
+            </p>
+          </div>
+          <!-- /.login-card-body -->
+        </div>
+      </div>
+      <!-- /.login-box -->      
+</body>
+</html>

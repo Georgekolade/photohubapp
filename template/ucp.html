@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Upload | PhotoHub</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'fontawesome/css/all.min.css' %}">
+</head>
+<body class="bg-light">
+
+	<section class="container-fluid bg-light">
+		<div class="row justify-content-center">
+			<div class="col-md-6 col-lg-4 col-sm-12 m-5 mt-5 p-5">
+				<div class="card">
+					<div class="card-header text-uppercase bg-success">
+						<h1 class="h4 text-white"><span class="float-left">Categories</span><span class="float-end"><a href="/profile" class="text-white"><i class="fas fa-home" title="Homepage"></i></a></span></h1>
+					</div>
+					<div class="card-body p-3">
+						<form action="" method="POST" enctype="multipart/form-data" autocomplete="on" spellcheck="true">
+							{% csrf_token %}
+
+							{% for message in messages %}
+							<h5 class="text-danger mb-3">{{message}}</h3>
+							{% endfor %}
+
+							{{form.as_p}}
+
+							<!-- <div class="mb-3">
+								<label class="form-label">Category</label>
+								<input type="text" class="form-control" required name="name">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Picture</label>
+								<input type="file" class="form-control" name="thumbnailp">
+							</div> -->
+							<div class="mb-3">
+								<button type="submit" class="input-group-text text-white bg-success">Upload</button>
+								<!-- <label class="form-label">Date</label>
+								<div class="input-group">
+									<input type="date" class="form-control" required name="date" min="2022-01-01">
+									<div class="input-group-append">
+										<button type="submit" class="input-group-text text-white bg-info">Upload</button>
+                  					</div>
+								</div> -->
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
